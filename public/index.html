@@ -4,11 +4,107 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Contact Manager</title>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="/stylesheets/whitespace-reset.css">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
   <script src="/javascripts/jquery.js"></script>
   <script src="/javascripts/handlebars.js"></script>
+  <script src="/javascripts/script.js"></script>
 </head>
 <body>
+  <header>
+    <h1 id="title">Contact Manager</h1>
+    <h2>Using Backbone.js, Localstorage, RequireJS, Handlebar and Bootstrap</h2>
+  </header>
+  <section id="add-search">
+    <button id="add-contact-btn">Add Contact</button>
+    <input type="text" name="search" id="search-box" placeholder="Search">
+  </section>
 
+  <section id="content-section">
+    
+  </section>
+
+  <script id="render-contacts" type="text/x-handlebars-template">
+    {{#each contacts}}
+      <div class="contact-card" id="conctact-{{id}}">
+        <h3>{{full_name}}</h3>
+        <dl>
+          <dt><p>Phone Number:</p></dt>
+          <dd><p>{{phone_number}}</p></dd>
+          <dt><p>Email:</p></dt>
+          <dl><p>{{email}}</p></dl>
+
+          <div class="edit-delete-btns ">
+            <button class="edit-btns" id="edit-btn" data-id="{{id}}">Edit</button> 
+            <button class="delete-btns" id="delete-btn" data-id="{{id}}">Delete</button>
+          </div>
+        </dl>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="add-contact" type="text/x-handlebars-template">
+    <form id="add-contact-form" action="/api/contacts">
+      <div class="add-contact">
+        <h3>Create Contact</h3>
+        <hr>
+        <dl>
+          <div class="container">
+            <dt class="label-text-pair"><p>Full name:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="full_name" for="full-name"></dt>
+          </div>
+          <div class="container">
+            <dt class="label-text-pair"><p>Email address:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="email" for="email-address"></dt>
+          </div>
+          <div class="container">
+            <dt class="label-text-pair"><p>Telephone number:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="phone_number" for="telephone-number"></dt>
+          </div>
+          <div class="container">
+            <dt class="label-text-pair"><p>Tags:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="tags" for="tags"></dt>
+          </div>
+        </dl>
+        <div class="submit-cancel-btns">
+          <input type="submit" value="Submit" name="submit" id="submit-btn">
+          <button id="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+  <script id="edit-contact" type="text/x-handlebars-template">
+    <form id="edit-contact-form" action="/api/contacts/">
+      <div class="edit-contact">
+        <h3>Edit Contact</h3>
+        <hr>
+        <dl>
+          <div class="container">
+            <dt class="label-text-pair"><p>Full name:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="full_name" for="full-name" value="{{full_name}}"></dt>
+          </div>
+          <div class="container">
+            <dt class="label-text-pair"><p>Email address:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="email" for="email-address" value="{{email}}"></dt>
+          </div>
+          <div class="container">
+            <dt class="label-text-pair"><p>Telephone number:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="phone_number" for="telephone-number" value="{{phone_number}}"></dt>
+          </div>
+          <div class="container">
+            <dt class="label-text-pair"><p>Tags:</p></dt>
+            <dt class="label-text-pair"><input type="text" name="tags" for="tags" value="{{tags}}"></dt>
+          </div>
+        </dl>
+        <div class="submit-cancel-btns">
+          <input type="submit" value="Submit" name="submit" id="submit-btn">
+          <button id="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </script>
 </body>
 </html>

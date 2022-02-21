@@ -1,0 +1,161 @@
+/* main page */
+body {
+  font-family: Halvetica Neue, Halvetica, sans-serif;
+}
+header {
+  background-color: #6b288d;
+  width: 100%;
+  height: 110px;
+  text-align: center;
+  padding-top: 35px;
+}
+
+h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  color: white;
+  font: 20px Halvetica Neue, Halvetica, sans-serif;
+  padding-top: 15px;
+ 
+}
+#add-search {
+  text-align: center;
+  padding: 25px;
+  background-color: rgb(252, 243, 243);
+  margin: 0 35px;
+  border: 1px rgb(231, 222, 222);
+  border-radius: 5px;
+}
+
+#add-contact-btn {
+  padding: 10px;
+  width: 140px;
+  height: 50px;
+  font-size: 20px;
+  border-color: #6b288d;
+  border-radius: 5px;
+  color:  #6b288d;
+  background-color: rgb(252, 243, 243);
+}
+
+#add-contact-btn:hover {
+  background-color: #6b288d;
+  color: white;
+}
+
+#search-box {
+  width: 200px;
+  height: 40px;
+  margin-left: 200px;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+/* contacts section */
+.contact-card {
+  display: inline-block;
+  padding: 20px;
+  width: 25%;
+}
+
+.contact-card h3 {
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd, dt {
+  padding: 3px;
+}
+
+.edit-delete-btns button {
+  margin-top: 20px;
+  padding: 2px;
+  width: 80px;
+  height: 40px;
+  font-size: 15px;
+  border-color: #6b288d;
+  border-radius: 5px;
+  color:  #6b288d;
+  background-color: white;
+}
+
+.edit-delete-btns button:hover {
+  background-color: #6b288d;
+  color: white;
+}
+
+/* add contact section */
+.add-contact, .edit-contact {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.add-contact h3, .edit-contact h3 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.label-text-pair {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.container {
+  position: relative;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: right;
+  min-width: 300px;
+}
+
+.container dt {
+  margin-right: 12px;
+}
+
+.add-contact input[type='text'], .edit-contact input[type='text'] {
+  height: 30px;
+  width: 350px;
+  outline: none;
+  border-color: rgba(245, 237, 237, 0.795);
+  border: 1px solid;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.add-contact input[type='text']:focus {
+  border-color: rgb(0, 195, 255);
+}
+
+hr {
+  background-color: rgba(245, 237, 237, 0.795);
+  border: none;
+  height: 1px;
+  margin-bottom: 20px;
+}
+.submit-cancel-btns {
+  margin-left: 20%;
+}
+.submit-cancel-btns button, input[type=submit] {
+  margin-top: 20px;
+  padding: 2px;
+  width: 170px;
+  height: 60px;
+  font-size: 20px;
+  border-color: #6b288d;
+  border-radius: 5px;
+  color:  #6b288d;
+  background-color: white;
+}
+
+.submit-cancel-btns button:hover, input[type=submit]:hover{
+  background-color: #6b288d;
+  color: white;
+}
