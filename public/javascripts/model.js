@@ -88,13 +88,26 @@ class Model {
   }
 
   _formatTags(object) {
-      if (object.tags.length === 0) {
-        object.tags = ['no tags'];
-      } else {
-        object.tags = object.tags.split(',');
-      }
-
+    if (object.tags.length === 0) {
+      object.tags = ['no tags'];
+    } else {
+      object.tags = object.tags.split(',');
+      this._preventDuplicateTags(object);
+    }
+    
     return object;
+  }
+
+  _preventDuplicateTags(object) {
+    let nonDuplicates = [];
+
+    object.tags.forEach(tag => {
+      if (!nonDuplicates.includes(tag)) {
+        nonDuplicates.push(tag);
+      }
+    });
+    
+    object.tags = nonDuplicates;
   }
 }
 
