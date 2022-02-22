@@ -34,7 +34,11 @@
           <dt><p>Email:</p></dt>
           <dl><p>{{email}}</p></dl>
           <dt><p>Tags:</p></dt>
-          <dd><p>{{tags}}</p></dd>
+          <dd>
+          {{#each tags}}
+            <a href="#" data-tag="{{this}}" class="tag">{{this}}</a>
+          {{/each}}
+          </dd>
           <div class="edit-delete-btns ">
             <button class="edit-btns" id="edit-btn" data-id="{{id}}">Edit</button> 
             <button class="delete-btns" id="delete-btn" data-id="{{id}}">Delete</button>

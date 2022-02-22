@@ -44,7 +44,6 @@ class View {
     let noResultsTemplate = Handlebars.compile(document.getElementById("no-results").innerHTML);
     this.contentSection.innerHTML = noResultsTemplate({searchText});
   }
-
 }
 
 export default View;

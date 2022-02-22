@@ -29,7 +29,7 @@
   },
   {
     "full_name": "Marcus Rashford",
-    "phone_number": "3423423423",
+    "phone_number": "1234567891",
     "email": "mrash@eng.com",
     "tags": "england",
     "id": 6
@@ -43,16 +43,9 @@
   },
   {
     "full_name": "Kobe Bryant",
-    "phone_number": "324234324",
+    "phone_number": "3216532244",
     "email": "kb24@lakers.com",
-    "tags": "lakers",
+    "tags": "lakers,legend",
     "id": 8
-  },
-  {
-    "full_name": "Arjun Rasodha",
-    "phone_number": "3216549870",
-    "email": "arjun@example.com",
-    "tags": "student",
-    "id": 9
   }
 ]

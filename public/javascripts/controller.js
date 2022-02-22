@@ -13,6 +13,7 @@ class Controller {
 
     this.handleSearchBox = debounce(this.handleSearchBox.bind(this), 700);
     this.handleSearchBox();
+    this.handleTitleClick();
   }
 
   async renderContacts(searchContacts) {
@@ -25,6 +26,7 @@ class Controller {
    
     this.handleDeleteContactButton();
     this.handleEditContactBtn();
+    this.handleTagFiltering();
   }
 
   handleAddContactButton() {
@@ -129,6 +131,30 @@ class Controller {
     });
 
     return warnings.length === 0;
+  }
+
+  handleTagFiltering() {
+    let tags = Array.from(document.getElementsByClassName("tag"));
+
+    tags.forEach(tag => {
+      tag.addEventListener("click", async (event) => {
+        event.preventDefault();
+        let tag = event.currentTarget.getAttribute("data-tag");
+        let contacts = await this.model.fetchContacts();
+
+        let filteredContacts = contacts.filter(({tags}) => tags.includes(tag));
+        this.renderContacts(filteredContacts);
+
+      });
+    });
+  }
+
+  handleTitleClick() {
+    let title = document.querySelector('h1');
+    title.addEventListener("click", event => {
+      event.preventDefault();
+      this.renderContacts();
+    });
   }
 }
 
