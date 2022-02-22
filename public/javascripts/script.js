@@ -1,3 +1,6 @@
+// My original approach which has been discarded and transformed into MVC with use of Fetch API
+//  and additional features
+
 function renderContacts(filteredContacts) {
   let contentSection = document.getElementById("content-section");
   let contactScript = document.getElementById("render-contacts");

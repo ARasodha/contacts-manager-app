@@ -1,6 +1,7 @@
 /* main page */
 body {
   font-family: Halvetica Neue, Halvetica, sans-serif;
+  text-align: center;
 }
 header {
   background-color: #6b288d;
@@ -50,7 +51,7 @@ h2 {
 #search-box {
   width: 200px;
   height: 40px;
-  margin-left: 200px;
+  margin-left: 5%;
   font-size: 18px;
   padding-left: 5px;
 }
@@ -163,4 +164,15 @@ hr {
 #no-results-message {
   padding: 60px;
   text-align: center;
+}
+
+/* validation */
+dt p {
+  margin: 0;
+  padding: 0;
+}
+
+.validation {
+  display: none;
+  color: red;
 }

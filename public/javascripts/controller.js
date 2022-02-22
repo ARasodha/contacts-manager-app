@@ -13,7 +13,6 @@ class Controller {
 
     this.handleSearchBox = debounce(this.handleSearchBox.bind(this), 700);
     this.handleSearchBox();
-    // this.model.bindRenderContacts(this.renderContacts.bind(this))
   }
 
   async renderContacts(searchContacts) {
@@ -37,8 +36,10 @@ class Controller {
     addContactForm.addEventListener("submit", event => {
       event.preventDefault();
 
-      this.model.createContact(addContactForm);
-      this.renderContacts();
+      if (this.validateFormInput()) {
+        this.model.createContact(addContactForm);
+        this.renderContacts();
+      }
     });
   
     this.handleCancelButton();
@@ -85,9 +86,13 @@ class Controller {
     let editForm = document.getElementById("edit-contact-form");
     editForm.addEventListener("submit", event => {
       event.preventDefault();
-      let contactId = editForm.getAttribute("data-contact-id");
-      this.model.editContact(contactId, editForm);
-      this.renderContacts();
+
+      if (this.validateFormInput()) {
+        let contactId = editForm.getAttribute("data-contact-id");
+        this.model.editContact(contactId, editForm);
+        this.renderContacts();
+      }
+
     });
   }
 
@@ -103,6 +108,27 @@ class Controller {
         this.renderContacts(contacts);
       }
     });
+  }
+
+  validateFormInput() {
+    let fullName = document.querySelector("[name=full_name]");
+    let email = document.querySelector("[name=email]");
+    let phoneNumber = document.querySelector("[name=phone_number]");
+
+    let warningMessages = Array.from(document.getElementsByClassName("validation"));
+    warningMessages.forEach(message => message.style.display = 'none');
+
+    let warnings = [];
+
+    if (!/^[a-z]+\s[a-z]+$/i.test(fullName.value)) warnings.push(fullName.name);
+    if (!/^.+@.+$/i.test(email.value)) warnings.push(email.name);
+    if (!/^\d\d\d\d\d\d\d\d\d\d$/.test(phoneNumber.value)) warnings.push(phoneNumber.name);
+
+    warnings.forEach(warning => {
+      document.getElementById(`${warning}-validation`).style.display = 'inline';
+    });
+
+    return warnings.length === 0;
   }
 }
 

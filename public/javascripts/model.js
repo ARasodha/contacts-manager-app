@@ -8,7 +8,8 @@ class Model {
     const response = await fetch("/api/contacts", {
       method: 'GET',
     }).then(response => response.json())
-      .then(data => data);
+      .then(data => data)
+      .catch(() => alert('There as an error fetching the contacts.'));
     
     return response.map(res => this._formatTags(res));
   }
@@ -17,7 +18,8 @@ class Model {
     const response = await fetch(`/api/contacts/${contactId}`, {
       method: 'GET',
     }).then(response => response.json())
-      .then(data => data);
+      .then(data => data)
+      .catch(() => alert("There was an error fetching the contact."));
       
     return response;
   }
@@ -63,7 +65,8 @@ class Model {
     let contacts = await fetch("/api/contacts", {
       method: 'GET',
     })
-    .then(response => response.json());
+    .then(response => response.json())
+    .catch(() => alert('There was an error searching contacts.'));
 
     contacts.map(contact => this._formatTags(contact));
 
@@ -92,10 +95,6 @@ class Model {
       }
   
     return object;
-  }
-
-  bindRenderContacts(callback) {
-    this.renderContacts = callback;
   }
 }
 
