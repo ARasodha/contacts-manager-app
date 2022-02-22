@@ -1,5 +1,5 @@
 // My original approach which has been discarded and transformed into MVC with use of Fetch API
-//  and additional features
+//  and additional features -- ignore and look at app.js, model.js, view.js and controller.js
 
 function renderContacts(filteredContacts) {
   let contentSection = document.getElementById("content-section");
