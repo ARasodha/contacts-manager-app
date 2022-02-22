@@ -13,7 +13,7 @@ function renderContacts(filteredContacts) {
       let contacts = formatTags(xhr.response);
       
       contentSection.innerHTML = contactsTemplate({contacts});
-  
+
       handleDeleteContactButton();
       renderEditContactSection();
     });
@@ -106,7 +106,7 @@ function handleSubmitEditFormButton(contactId) {
         renderContacts();
         toggleAddSearchSection();
       } else if (xhr.status === 400) {
-        alert('There was an error updated the contact');
+        alert('There was an error updating the contact');
       }
     });
   });

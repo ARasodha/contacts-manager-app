@@ -159,3 +159,8 @@ hr {
   background-color: #6b288d;
   color: white;
 }
+
+#no-results-message {
+  padding: 60px;
+  text-align: center;
+}

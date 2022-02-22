@@ -9,8 +9,8 @@
   {
     "id": 2,
     "full_name": "Victor Reyes",
-    "email": "vpr@example.com",
-    "phone_number": "9044549322",
+    "email": "vr@example.com",
+    "phone_number": "9044549321",
     "tags": "work,friend"
   },
   {
@@ -22,16 +22,30 @@
   },
   {
     "full_name": "Cristiano Ronaldo",
-    "phone_number": "00079991717",
+    "phone_number": "00079991719",
     "email": "cr7@manutd.com",
-    "tags": "goat,legend",
+    "tags": "legend,striker",
     "id": 4
   },
   {
+    "full_name": "Marcus Rashford",
+    "phone_number": "34234234233",
+    "email": "mrash@eng.com",
+    "tags": "england,striker",
+    "id": 6
+  },
+  {
+    "full_name": "Peter Smith",
+    "phone_number": "324234324",
+    "email": "ps@example.com",
+    "tags": "developer",
+    "id": 7
+  },
+  {
     "full_name": "Kobe Bryant",
-    "phone_number": "1112223333",
+    "phone_number": "324234324",
     "email": "kb24@lakers.com",
-    "tags": "mvp",
-    "id": 5
+    "tags": "lakers",
+    "id": 8
   }
 ]
