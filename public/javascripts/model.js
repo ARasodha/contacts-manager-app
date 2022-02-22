@@ -89,11 +89,11 @@ class Model {
 
   _formatTags(object) {
       if (object.tags.length === 0) {
-        object.tags = 'no tags';
+        object.tags = ['no tags'];
       } else {
-        object.tags = object.tags.split(',').join(', ');
+        object.tags = object.tags.split(',');
       }
-  
+
     return object;
   }
 }
