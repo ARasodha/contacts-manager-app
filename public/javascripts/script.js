@@ -1,20 +1,40 @@
-function renderContacts() {
+function renderContacts(filteredContacts) {
   let contentSection = document.getElementById("content-section");
+  let contactScript = document.getElementById("render-contacts");
+  let contactsTemplate = Handlebars.compile(contactScript.innerHTML);
 
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", '/api/contacts');
-  xhr.responseType = 'json';
-  xhr.send();
+  if (!filteredContacts) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", '/api/contacts');
+    xhr.responseType = 'json';
+    xhr.send();
+  
+    xhr.addEventListener('load', event => {
+      let contacts = formatTags(xhr.response);
+      
+      contentSection.innerHTML = contactsTemplate({contacts});
+  
+      handleDeleteContactButton();
+      renderEditContactSection();
+    });
+  } else {
 
-  xhr.addEventListener('load', event => {
-    let contacts = xhr.response;
-    let contactScript = document.getElementById("render-contacts");
-    let contactsTemplate = Handlebars.compile(contactScript.innerHTML);
-    contentSection.innerHTML = contactsTemplate({contacts});
-
+    contentSection.innerHTML = contactsTemplate({contacts: formatTags(filteredContacts)});
     handleDeleteContactButton();
     renderEditContactSection();
-  });
+  }
+}
+
+function formatTags(arr) {
+  arr.forEach(object => {
+    if (object.tags.length === 0) {
+      object.tags = 'no tags';
+    } else {
+      object.tags = object.tags.split(',').join(', ');
+    }
+  })
+
+  return arr;
 }
 
 function handleDeleteContactButton() {
@@ -163,8 +183,27 @@ function formDataToJson(formData) {
   return JSON.stringify(json);
 }
 
+function handleSearchBox() {
+  let searchBox = document.getElementById('search-box');
+  searchBox.addEventListener("keyup", event => {
+    let boxText = searchBox.value;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", '/api/contacts');
+    xhr.responseType = 'json';
+    xhr.send();
+
+    xhr.addEventListener('load', event => {
+      let contacts = xhr.response;
+      let contactNames = contacts.map(({full_name}) => full_name);
+      let filteredContactNames = contactNames.filter(name => name.toLowerCase().includes(boxText));
+      let filteredContacts = contacts.filter(({full_name}) => filteredContactNames.includes(full_name));
+      renderContacts(filteredContacts);
+    });
+  })
+}
 
 document.addEventListener("DOMContentLoaded", event => {
   renderContacts();
   renderAddContentSection();
+  handleSearchBox();
 });

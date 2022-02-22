@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Contact Manager</title>
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="/stylesheets/whitespace-reset.css">
   <link rel="stylesheet" href="/stylesheets/styles.css">
   <script src="/javascripts/jquery.js"></script>
@@ -15,7 +14,7 @@
 <body>
   <header>
     <h1 id="title">Contact Manager</h1>
-    <h2>Using Backbone.js, Localstorage, RequireJS, Handlebar and Bootstrap</h2>
+    <h2>Arjun Rasodha's JS239 Practice Project</h2>
   </header>
   <section id="add-search">
     <button id="add-contact-btn">Add Contact</button>
@@ -35,7 +34,8 @@
           <dd><p>{{phone_number}}</p></dd>
           <dt><p>Email:</p></dt>
           <dl><p>{{email}}</p></dl>
-
+          <dt><p>Tags:</p></dt>
+          <dd><p>{{tags}}</p></dd>
           <div class="edit-delete-btns ">
             <button class="edit-btns" id="edit-btn" data-id="{{id}}">Edit</button> 
             <button class="delete-btns" id="delete-btn" data-id="{{id}}">Delete</button>
@@ -65,7 +65,7 @@
           </div>
           <div class="container">
             <dt class="label-text-pair"><p>Tags:</p></dt>
-            <dt class="label-text-pair"><input type="text" name="tags" for="tags"></dt>
+            <dt class="label-text-pair"><input type="text" name="tags" for="tags" value={{tags}}></dt>
           </div>
         </dl>
         <div class="submit-cancel-btns">
