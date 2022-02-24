@@ -71,7 +71,7 @@ class Model {
     contacts.map(contact => this._formatTags(contact));
 
     let contactNames = contacts.map(({full_name}) => full_name);
-    let filteredContactNames = contactNames.filter(name => name.toLowerCase().startsWith(searchText));
+    let filteredContactNames = contactNames.filter(name => name.toLowerCase().includes(searchText));
     let filteredContacts = contacts.filter(({full_name}) => filteredContactNames.includes(full_name));
     return filteredContacts;
   }
@@ -81,7 +81,8 @@ class Model {
     formData.forEach((value, key) => {
       json[key] = value;
     });
-  
+    
+    this._preventDuplicateTags(json);
     json.tags = json.tags.split(' ').join(',');
   
     return JSON.stringify(json);
@@ -92,7 +93,7 @@ class Model {
       object.tags = ['no tags'];
     } else {
       object.tags = object.tags.split(',');
-      this._preventDuplicateTags(object);
+      
     }
     
     return object;

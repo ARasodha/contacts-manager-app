@@ -28,24 +28,10 @@
     "id": 4
   },
   {
-    "full_name": "Marcus Rashford",
-    "phone_number": "1234567891",
-    "email": "mrash@eng.com",
-    "tags": "england",
-    "id": 6
-  },
-  {
     "full_name": "Peter Smith",
     "phone_number": "324234324",
     "email": "ps@example.com",
     "tags": "developer",
     "id": 7
-  },
-  {
-    "full_name": "Kobe Bryant",
-    "phone_number": "3216532244",
-    "email": "kb24@lakers.com",
-    "tags": "lakers,legend",
-    "id": 8
   }
 ]
