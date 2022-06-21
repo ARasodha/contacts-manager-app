@@ -32,7 +32,7 @@ class Model {
       headers: {
         'Content-Type': 'application/json; charset=UTF-8'
       },
-      body: this._formDataToJson(formData),
+      body: await this._formDataToJson(formData),
     })
     .then(response => response.json())
     .then(() => alert("Successfully added contact."))
@@ -81,15 +81,15 @@ class Model {
     formData.forEach((value, key) => {
       json[key] = value;
     });
-    
+
     this._preventDuplicateTags(json);
-    json.tags = json.tags.split(' ').join(',');
+    json.tags = json.tags.join(',');
   
     return JSON.stringify(json);
   }
 
   _formatTags(object) {
-    if (object.tags.length === 0) {
+    if (object.tags.split(' ').length === 0) {
       object.tags = ['no tags'];
     } else {
       object.tags = object.tags.split(',');
@@ -102,7 +102,7 @@ class Model {
   _preventDuplicateTags(object) {
     let nonDuplicates = [];
 
-    object.tags.forEach(tag => {
+    object.tags.split(' ').forEach(tag => {
       if (!nonDuplicates.includes(tag)) {
         nonDuplicates.push(tag);
       }

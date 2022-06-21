@@ -14,13 +14,6 @@
     "tags": "work,friend"
   },
   {
-    "id": 3,
-    "full_name": "Pete Hanson",
-    "email": "ph@example.com",
-    "phone_number": "54321098761",
-    "tags": ""
-  },
-  {
     "full_name": "Cristiano Ronaldo",
     "phone_number": "00079991719",
     "email": "cr7@manutd.com",
@@ -33,5 +26,19 @@
     "email": "ps@example.com",
     "tags": "developer",
     "id": 7
+  },
+  {
+    "full_name": "Arjun Rasodha",
+    "phone_number": "6443341221",
+    "email": "ar@example.com",
+    "tags": "dev",
+    "id": 8
+  },
+  {
+    "full_name": "Mike Jordan",
+    "phone_number": "1213322323",
+    "email": "mj@example.com",
+    "tags": "mvp",
+    "id": 9
   }
 ]

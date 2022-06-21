@@ -17,7 +17,7 @@ class View {
   
       let addContactScript = document.getElementById("add-contact");
       let addContactTemplate = Handlebars.compile(addContactScript.innerHTML);
-      this.contentSection.innerHTML = addContactTemplate(addContactScript);
+      this.contentSection.innerHTML = addContactTemplate();
       this.displayAddSearchSection();
       handleAddContactForm();
     });
